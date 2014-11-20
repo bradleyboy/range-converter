@@ -33,7 +33,7 @@ class RangeConverter
      * @param array $numbers
      * @return string
      */
-    public function reduceRanges($numbers)
+    public function reduce($numbers)
     {
         asort($numbers);
 
@@ -55,7 +55,7 @@ class RangeConverter
      * @param string $string
      * @return array
      */
-    public function expandRanges($string)
+    public function expand($string)
     {
         $ranges = explode($this->separator, $string);
         $output = array();
