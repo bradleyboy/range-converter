@@ -7,10 +7,17 @@
             "email": "brad@bradleyboy.com"
         }
     ],
+    "type": "library",
+    "description": "Simple class that creates compact string representations of integer arrays. Can also convert those strings back to array.",
+    "keywords": ["range", "array", "compact", "string"],
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "Bradleyboy\\": "src/bradleyboy"
         }
+    },
+    "require": {
+        "php": ">=5.3.0"
     },
     "require-dev": {
         "phpunit/phpunit": "@stable"
