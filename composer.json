@@ -1,0 +1,18 @@
+{
+    "name": "bradleyboy/range-converter",
+    "version": "0.1.0",
+    "authors": [
+        {
+            "name": "Brad Daily",
+            "email": "brad@bradleyboy.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Bradleyboy\\": "src/bradleyboy"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "@stable"
+    }
+}
