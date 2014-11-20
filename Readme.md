@@ -7,21 +7,21 @@ This simple class reduces arrays into compact strings by creating ranges when en
 Reducing ranges:
 
 ```php
-$converter = new Bradleyboy\RangeConverter;
+$converter = new Bradleyboy\Util\RangeConverter;
 $converter->reduce([1,2,3,4,7,9,10,11]); // Returns: '1..4,7,9..11'
 ```
 
 Expanding ranges:
 
 ```php
-$converter = new Bradleyboy\RangeConverter;
+$converter = new Bradleyboy\Util\RangeConverter;
 $converter->expand('1..4,7,9..11'); // Returns: [1,2,3,4,7,9,10,11]
 ```
 
 You can also set custom separators:
 
 ```php
-$converter = new Bradleyboy\RangeConverter;
+$converter = new Bradleyboy\Util\RangeConverter;
 $converter->setSeparator('.')
           ->setRangeSeparator('-')
           ->reduce([1,2,3,4,7,9,10,11]); // Returns: '1-4.7.9-11'
