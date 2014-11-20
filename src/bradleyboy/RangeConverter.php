@@ -24,18 +24,17 @@ class RangeConverter
     }
 
     /**
-     * Converts adjacent integers in a {$this->separator} separated string
-     * to a range.
+     * Converts adjacent integers in an array
+     * to range notation (firstNumber{rangeSeparator}lastNumber).
      *
-     * Example: 1,2,3,4,6,8,9,10,11
+     * Example: [1,2,3,4,6,8,9,10,11]
      * Output: 1..4,6,8,9..11
      *
-     * @param $string
+     * @param array $numbers
      * @return string
      */
-    public function reduceRanges($string)
+    public function reduceRanges($numbers)
     {
-        $numbers = explode($this->separator, $string);
         asort($numbers);
 
         foreach ($numbers as $number) {
@@ -48,31 +47,35 @@ class RangeConverter
     }
 
     /**
-     * Converts ranges back to a {$this->separator} separated string.
+     * Converts string containing range notation back to array.
      *
      * Example: 1..4,6,8,9..11
-     * Output: 1,2,3,4,6,8,9,10,11
+     * Output: [1,2,3,4,6,8,9,10,11]
      *
-     * @param $string
-     * @return string
+     * @param string $string
+     * @return array
      */
     public function expandRanges($string)
     {
         $ranges = explode($this->separator, $string);
+        $output = array();
 
-        $output = array_map(function ($item) {
-            if (is_numeric($item)) {
-                return $item;
+        foreach ($ranges as $range) {
+            if (is_numeric($range)) {
+                $output[] = $range;
+                continue;
             }
 
-            list($start, $end) = explode($this->rangeSeparator, $item);
+            list($start, $end) = explode($this->rangeSeparator, $range);
 
-            return implode($this->separator, range($start, $end));
-        }, $ranges);
+            $output = array_merge(
+                $output, range($start, $end)
+            );
+        }
 
         natcasesort($output);
 
-        return implode($this->separator, $output);
+        return $output;
     }
 
     private function isNextInRange($number)
