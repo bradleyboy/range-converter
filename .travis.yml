@@ -6,3 +6,5 @@ php:
   - hhvm
 install:
   - composer dumpautoload
+script:
+  - phpunit --configuration ../phpunit.xml.dist
