@@ -2,13 +2,13 @@
          colors="true">
     <testsuites>
         <testsuite name="unit">
-            <directory>src/Bradleyboy</directory>
+            <directory>src/bradleyboy</directory>
         </testsuite>
     </testsuites>
 
     <filter>
         <whitelist>
-            <directory suffix="Test.php">src/Bradleyboy/</directory>
+            <directory suffix="Test.php">src/bradleyboy/</directory>
         </whitelist>
     </filter>
 </phpunit>
