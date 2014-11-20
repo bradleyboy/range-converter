@@ -26,3 +26,5 @@ $converter->setSeparator('.')
           ->setRangeSeparator('-')
           ->reduceRanges('1.2.3.4.7.9.10.11'); // Returns: 1-4.7.9-11
 ```
+
+For more examples, see `src/bradleyboy/RangeConverterTest.php`.
