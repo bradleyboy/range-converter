@@ -8,7 +8,7 @@
         }
     ],
     "type": "library",
-    "description": "Simple class that creates compact string representations of integer arrays. Can also convert those strings back to array.",
+    "description": "Simple class that creates compact string representations of integer arrays. Can also convert those strings back to an array.",
     "keywords": ["range", "array", "compact", "string"],
     "license": "MIT",
     "autoload": {
