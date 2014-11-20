@@ -2,6 +2,8 @@
 
 This simple class reduces arrays into compact strings by creating ranges when encountering neighboring integers. It can also expand strings with ranges back to the original array form.
 
+[![Build Status](https://travis-ci.org/bradleyboy/range-converter.svg?branch=master)](https://travis-ci.org/bradleyboy/range-converter)
+
 ## Examples
 
 Reducing ranges:
