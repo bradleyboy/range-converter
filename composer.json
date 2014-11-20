@@ -13,7 +13,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Bradleyboy\\": "src/bradleyboy"
+            "Bradleyboy\\": "src/Bradleyboy"
         }
     },
     "require": {

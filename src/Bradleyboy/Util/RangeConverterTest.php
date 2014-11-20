@@ -1,6 +1,6 @@
 <?php
 
-namespace Bradleyboy;
+namespace Bradleyboy\Util;
 
 use PHPUnit_Framework_TestCase;
 
@@ -18,7 +18,7 @@ class RangeConverterTest extends PHPUnit_Framework_TestCase
 
     public function test_it_instantiates()
     {
-        $this->assertInstanceOf('Bradleyboy\RangeConverter', $this->converter);
+        $this->assertInstanceOf('Bradleyboy\Util\RangeConverter', $this->converter);
     }
 
     public function test_it_converts_an_array_to_a_range()
@@ -65,7 +65,7 @@ class RangeConverterTest extends PHPUnit_Framework_TestCase
 
     public function test_it_respects_custom_seperators()
     {
-        $converter = new RangeConverter;
+        $converter = new RangeConverter();
         $result = $converter->setSeparator('|')
             ->setRangeSeparator(',')
             ->reduce(

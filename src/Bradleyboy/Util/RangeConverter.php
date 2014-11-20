@@ -1,6 +1,6 @@
 <?php
 
-namespace Bradleyboy;
+namespace Bradleyboy\Util;
 
 class RangeConverter
 {
@@ -9,6 +9,12 @@ class RangeConverter
     private $separator = ',';
     private $rangeSeparator = '..';
 
+    /**
+     * Set the separator used between members of the array
+     *
+     * @param $separator
+     * @return $this
+     */
     public function setSeparator($separator)
     {
         $this->separator = $separator;
@@ -16,6 +22,12 @@ class RangeConverter
         return $this;
     }
 
+    /**
+     * Set the separator used in the range notation
+     *
+     * @param $separator
+     * @return $this
+     */
     public function setRangeSeparator($separator)
     {
         $this->rangeSeparator = $separator;
@@ -24,35 +36,12 @@ class RangeConverter
     }
 
     /**
-     * Converts adjacent integers in an array
-     * to range notation (firstNumber{rangeSeparator}lastNumber).
-     *
-     * Example: [1,2,3,4,6,8,9,10,11]
-     * Output: 1..4,6,8,9..11
-     *
-     * @param array $numbers
-     * @return string
-     */
-    public function reduce($numbers)
-    {
-        asort($numbers);
-
-        foreach ($numbers as $number) {
-            $this->isNextInRange($number);
-        }
-
-        $this->clearRange();
-
-        return implode($this->separator, $this->output);
-    }
-
-    /**
      * Converts string containing range notation back to array.
      *
      * Example: 1..4,6,8,9..11
      * Output: [1,2,3,4,6,8,9,10,11]
      *
-     * @param string $string
+     * @param  string $string
      * @return array
      */
     public function expand($string)
@@ -78,6 +67,29 @@ class RangeConverter
         return $output;
     }
 
+    /**
+     * Converts adjacent integers in an array
+     * to range notation (firstNumber{rangeSeparator}lastNumber).
+     *
+     * Example: [1,2,3,4,6,8,9,10,11]
+     * Output: 1..4,6,8,9..11
+     *
+     * @param  array  $numbers
+     * @return string
+     */
+    public function reduce($numbers)
+    {
+        asort($numbers);
+
+        foreach ($numbers as $number) {
+            $this->isNextInRange($number);
+        }
+
+        $this->clearRange();
+
+        return implode($this->separator, $this->output);
+    }
+
     private function isNextInRange($number)
     {
         if (empty($this->range) || $number - $this->range[count($this->range) - 1] === 1) {
@@ -95,7 +107,7 @@ class RangeConverter
     {
         if (!empty($this->range)) {
             $this->output[] = $this->addRangeToOutput();
-            $this->range    = array();
+            $this->range = array();
         }
     }
 
@@ -105,12 +117,14 @@ class RangeConverter
             return array_pop($this->range);
         }
 
+        // If the range array has only two members, there
+        // is no benefit to using the range notation.
         if (count($this->range) === 2) {
             return implode($this->separator, $this->range);
         }
 
         $first = array_shift($this->range);
-        $last  = array_pop($this->range);
+        $last = array_pop($this->range);
 
         return "{$first}{$this->rangeSeparator}{$last}";
     }
