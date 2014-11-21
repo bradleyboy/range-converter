@@ -63,7 +63,7 @@ class RangeConverterTest extends PHPUnit_Framework_TestCase
         ));
     }
 
-    public function test_it_respects_custom_seperators()
+    public function test_it_respects_custom_separators()
     {
         $converter = new RangeConverter();
         $result = $converter->setSeparator('|')

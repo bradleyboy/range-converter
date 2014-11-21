@@ -1,0 +1,26 @@
+{
+  "name": "range-parser",
+  "version": "0.1.0",
+  "description": "Compact string representations of integer arrays.",
+  "main": "range-converter.js",
+  "devDependencies": {
+    "buster": "^0.7.17"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/buster-test && ./vendor/bin/phpunit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bradleyboy/range-converter.git"
+  },
+  "author": {
+    "name": "Brad Daily",
+    "email": "brad@bradleyboy.com",
+    "url": "http://bradleyboy.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bradleyboy/range-converter/issues"
+  },
+  "homepage": "https://github.com/bradleyboy/range-converter"
+}

@@ -6,5 +6,6 @@ php:
   - hhvm
 install:
   - composer install
+  - npm install
 script:
-  - phpunit --configuration phpunit.xml.dist
+  - npm test
